@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{E7CA76B2-4EE3-DC4D-635E-BD843DA02D25}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Shaders/UnlitTranparent.shader">
+    <Files>
+      <File FileName="Assets/Shaders/BlueEffect.shader" Line="24" Column="20" />
+      <File FileName="Assets/Shaders/UnlitTranparent.shader" Line="68" Column="47" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="LearnToCode_water" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Shaders" expanded="True">
+                <Node name="UnlitTranparent.shader" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0b0a0d27-b64f-4eb2-9ee1-96d912cf6305" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
