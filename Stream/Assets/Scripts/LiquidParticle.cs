@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LiquidParticle : MonoBehaviour
 {
+    public float collider_ontime;
     float timer;
     float timer_destory;
     // Start is called before the first frame update
@@ -16,7 +17,7 @@ public class LiquidParticle : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 0.2f)
+        if (timer > collider_ontime)
         {
             this.GetComponent<CircleCollider2D>().enabled = true;
         }

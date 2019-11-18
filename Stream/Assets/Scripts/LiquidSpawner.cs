@@ -6,6 +6,7 @@ public class LiquidSpawner : MonoBehaviour
 {
     public GameObject liquidParticle;
     public float flowRate;
+    public float randomRange;
     private float timer;
 
     // Start is called before the first frame update
@@ -20,7 +21,7 @@ public class LiquidSpawner : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > flowRate)
         {
-            Vector3 random_spawn = new Vector3(this.transform.position.x+Random.Range(-0.1f,0.1f), this.transform.position.y, this.transform.position.z);
+            Vector3 random_spawn = new Vector3(this.transform.position.x+Random.Range(-randomRange, randomRange), this.transform.position.y, this.transform.position.z);
             Instantiate(liquidParticle, random_spawn, Quaternion.identity, this.transform);
             timer = 0;
         }
