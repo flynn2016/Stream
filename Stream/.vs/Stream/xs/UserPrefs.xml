@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{32B7CA11-2FA6-7882-F28B-45172753601B}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Ifoperation.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Particle.cs" Line="27" Column="6" />
+      <File FileName="Assets/Scripts/test.cs" Line="16" Column="25" />
+      <File FileName="Assets/Scripts/MetaballCameraEffect.cs" Line="11" Column="1" />
+      <File FileName="Assets/Scripts/Ifoperation.cs" Line="7" Column="24" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Stream" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Ifoperation.cs" selected="True" />
+              </Node>
+              <Node name="Shaders" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a6337166-7e18-416f-ac26-b6d07ee288e1" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
