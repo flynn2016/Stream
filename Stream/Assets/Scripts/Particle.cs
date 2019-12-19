@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Particle : MonoBehaviour {
-	public float lifetime;
-    public float maxySpeed;
-    float timer;
+    //public float lifetime;
+    //float timer;
+    public float max_yspeed;
+
 
 	Rigidbody2D ridgebody;
 
@@ -15,9 +16,7 @@ public class Particle : MonoBehaviour {
 
 	void Update () {
         Speedlimit();
-
-        timer += Time.deltaTime;
-        if (timer > lifetime||this.transform.position.y<-15f)
+        if (this.transform.position.y<-15f) // destroy self when pos.y lower than -15
         {
             Destroy(this.gameObject);
         }
@@ -25,9 +24,9 @@ public class Particle : MonoBehaviour {
 
     void Speedlimit()
     {
-        if (ridgebody.velocity.y < -maxySpeed)
+        if (ridgebody.velocity.y < -max_yspeed)
         {
-            ridgebody.velocity = new Vector2(ridgebody.velocity.x, -maxySpeed);
+            ridgebody.velocity = new Vector2(ridgebody.velocity.x, -max_yspeed);
         }
     }
 
