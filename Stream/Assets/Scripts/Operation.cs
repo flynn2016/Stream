@@ -7,4 +7,6 @@ public abstract class Operation : MonoBehaviour
     public abstract void TurnOn();
 
     public abstract void TurnOff();
+
+    public abstract void SetCondition();
 }

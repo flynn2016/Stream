@@ -15,9 +15,19 @@ public class Ifoperation : Operation
         liquidoutput1.TurnOffLiquid();
         liquidoutput2.TurnOffLiquid();
     }
+    public override void SetCondition()
+    {
+        turning = true;
+
+    }
 
     public LiquidSpawn liquidoutput1;
     public LiquidSpawn liquidoutput2;
+    public GameObject Particle_red;
+    public GameObject Particle_blue;
+    public Transform condition;
+    private bool turning;
+    private int count;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +39,27 @@ public class Ifoperation : Operation
     // Update is called once per frame
     void Update()
     {
+        if (turning)
+        {
+            count += 5;
+            condition.eulerAngles = new Vector3(condition.eulerAngles.x, condition.eulerAngles.y, condition.eulerAngles.z + 5);
+            if (count == 180)
+            {
+                count = 0;
+                turning = false;
+            }
+        }
 
+        if(Mathf.Abs(condition.eulerAngles.z)<= 0.1f)
+        {
+            liquidoutput1.liquidParticle = Particle_blue;
+            liquidoutput2.liquidParticle = Particle_red;
+        }
+        else
+        {
+            liquidoutput1.liquidParticle = Particle_red;
+            liquidoutput2.liquidParticle = Particle_blue;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -39,4 +69,5 @@ public class Ifoperation : Operation
             TurnOff();
         }
     }
+
 }

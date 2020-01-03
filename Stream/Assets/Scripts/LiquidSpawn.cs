@@ -5,22 +5,23 @@ using UnityEngine;
 public class LiquidSpawn : MonoBehaviour
 {
     public GameObject liquidParticle;
+
+    [Range(0,100)]
     public float flowRate; //how often instantiate water particle
+
+    [Range(0, 1f)]
     public float randomRange; //random spawn position at y direction
 
-    public bool liquidon;
+    public bool Liquidon { get; private set; }
     private float timer;
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
-        if (liquidon)
+        if (Liquidon)
         {
             timer += Time.deltaTime;
             if (timer > 1/flowRate)
@@ -30,17 +31,20 @@ public class LiquidSpawn : MonoBehaviour
                 timer = 0;
             }
         }
-
-        //Debug.Log(this.name+": "+this.transform.childCount);
     }
 
     public void TurnOnLiquid()
     {
-        liquidon = true;
+        Liquidon = true;
     }
 
     public void TurnOffLiquid()
     {
-        liquidon = false;
+        Liquidon = false;
+    }
+
+    public void SwapParticle()
+    {
+
     }
 }
