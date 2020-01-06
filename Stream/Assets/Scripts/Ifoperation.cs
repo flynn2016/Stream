@@ -15,10 +15,9 @@ public class Ifoperation : Operation
         liquidoutput1.TurnOffLiquid();
         liquidoutput2.TurnOffLiquid();
     }
-    public override void SetCondition()
+    public override void ChangeCondition()
     {
         turning = true;
-
     }
 
     public LiquidSpawn liquidoutput1;
@@ -28,6 +27,7 @@ public class Ifoperation : Operation
     public Transform condition;
     private bool turning;
     private int count;
+    private bool accepting_water;
 
     // Start is called before the first frame update
     void Start()
@@ -62,12 +62,8 @@ public class Ifoperation : Operation
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("StreamCollider"))
-        {
-            TurnOff();
-        }
+        Debug.Log(collision.name);
     }
-
 }

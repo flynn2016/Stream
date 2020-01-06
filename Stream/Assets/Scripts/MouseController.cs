@@ -11,6 +11,7 @@ public class MouseController : MonoBehaviour
     public Camera cam;
 
     private Vector2 offset;
+    private Animator animator_holder;
 
     private void Update()
     {
@@ -32,11 +33,12 @@ public class MouseController : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("SetCondition"))
                 {
-                    hit.transform.parent.parent.GetComponent<Animator>().SetBool("isSettingCondition",true);
+                    animator_holder = hit.transform.parent.GetComponent<Animator>();
+                    animator_holder.SetBool("isSettingCondition", !animator_holder.GetBool("isSettingCondition"));
                 }
-                else if (hit.collider.CompareTag("IfCondition_set"))
+                else if (hit.collider.CompareTag("ChangeCondition"))
                 {
-                    hit.transform.parent.GetComponentInParent<Operation>().SetCondition();
+                    hit.transform.parent.GetComponentInParent<Operation>().ChangeCondition();
                 }
             }
         }
