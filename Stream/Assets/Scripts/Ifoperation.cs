@@ -4,17 +4,28 @@ using UnityEngine;
 
 public class Ifoperation : Operation
 {
-    public override void TurnOn()
+    public override void Toggle()
     {
-        liquidoutput1.TurnOnLiquid();
-        liquidoutput2.TurnOnLiquid();
+        if (!operation_started&&accepting_water)
+        {
+            liquidoutput1.TurnOnLiquid();
+            liquidoutput2.TurnOnLiquid();
+        }
+        else
+        {
+            liquidoutput1.TurnOffLiquid();
+            liquidoutput2.TurnOffLiquid();
+        }
+        if (!operation_started&&accepting_water)
+        {
+            operation_started = true;
+        }
+        else
+        {
+            operation_started = false;
+        }
     }
 
-    public override void TurnOff()
-    {
-        liquidoutput1.TurnOffLiquid();
-        liquidoutput2.TurnOffLiquid();
-    }
     public override void ChangeCondition()
     {
         turning = true;
@@ -28,6 +39,8 @@ public class Ifoperation : Operation
     private bool turning;
     private int count;
     private bool accepting_water;
+    private int water_count;
+    private int water_count_prev;
 
     // Start is called before the first frame update
     void Start()
@@ -60,10 +73,22 @@ public class Ifoperation : Operation
             liquidoutput1.liquidParticle = Particle_red;
             liquidoutput2.liquidParticle = Particle_blue;
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+        //dumb way to detect exit water flow
+        if (water_count > water_count_prev)
+        {
+            accepting_water = true;
+        }
+        else
+        {
+            accepting_water = false;
+        }
+
+        water_count_prev = water_count;
+    }
+    void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log(collision.name);
+        water_count++;
     }
 }
+

@@ -29,7 +29,7 @@ public class MouseController : MonoBehaviour
             {
                 if (hit.collider.CompareTag("StartOperation"))
                 {
-                    hit.transform.parent.GetComponentInParent<Operation>().TurnOn();
+                    hit.transform.parent.GetComponentInParent<Operation>().Toggle();
                 }
                 else if (hit.collider.CompareTag("SetCondition"))
                 {
@@ -55,9 +55,12 @@ public class MouseController : MonoBehaviour
                 {
                     if (hit.transform.CompareTag("Operation"))
                     {
-                        currentSelection = hit.transform;
-                        moving = true;
-                        offset = new Vector2(hit.point.x-currentSelection.position.x, hit.point.y - currentSelection.position.y);
+                        if (!hit.transform.GetComponent<Operation>().operation_started)
+                        {
+                            currentSelection = hit.transform;
+                            moving = true;
+                            offset = new Vector2(hit.point.x - currentSelection.position.x, hit.point.y - currentSelection.position.y);
+                        }
                     }
                 }
             }
