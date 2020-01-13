@@ -56,9 +56,7 @@ SubShader {
 
 	half4 frag (v2f i) : COLOR{		
 		half4 texcol= tex2D (_MainTex, i.uv); 
-		//half4 finalColor = texcol;
-
-	
+		//half4 finalColor = texcol; 
 		clip(texcol.a - _Cutoff);
 
 		if (texcol.a < _Stroke) {

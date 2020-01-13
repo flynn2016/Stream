@@ -5,6 +5,7 @@ using UnityEngine;
 public class Beaker : MonoBehaviour
 {
     public int water_threshold;
+    public bool finished { get; private set;}
     private int water_count;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class Beaker : MonoBehaviour
         if (water_count >= water_threshold)
         {
             Debug.Log("here");
+            finished = true;
             this.GetComponent<Animator>().SetBool("finished", true);
         }
     }

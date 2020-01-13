@@ -31,11 +31,6 @@ public class MouseController : MonoBehaviour
                 {
                     hit.transform.parent.GetComponentInParent<Operation>().Toggle();
                 }
-                else if (hit.collider.CompareTag("SetCondition"))
-                {
-                    animator_holder = hit.transform.parent.GetComponent<Animator>();
-                    animator_holder.SetBool("isSettingCondition", !animator_holder.GetBool("isSettingCondition"));
-                }
                 else if (hit.collider.CompareTag("ChangeCondition"))
                 {
                     hit.transform.parent.GetComponentInParent<Operation>().ChangeCondition();

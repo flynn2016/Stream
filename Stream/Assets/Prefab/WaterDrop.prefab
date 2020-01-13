@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 58207158184040794}
   - component: {fileID: 50136950052901686}
   - component: {fileID: 114815093173730838}
-  m_Layer: 8
+  m_Layer: 4
   m_Name: WaterDrop
   m_TagString: Metaball_liquid
   m_Icon: {fileID: 0}
@@ -132,5 +132,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab070cb635ce24f268300eb3342ab80f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 10
   max_yspeed: 10

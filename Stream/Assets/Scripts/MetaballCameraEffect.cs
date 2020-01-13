@@ -8,19 +8,15 @@ namespace UnityStandardAssets.ImageEffects
     {
         /// Blur iterations - larger number means more blur.
         public int iterations = 3;
-
         /// Blur spread for each iteration. Lower values
         /// give better looking blur, but require more iterations to
         /// get large blurs. Value is usually between 0.5 and 1.0.
         public float blurSpread = 0.6f;
-
         // The blur iteration shader.
         // Basically it just takes 4 texture samples and averages them.
         // By applying it repeatedly and spreading out sample locations
         // we get a Gaussian blur approximation.
-
         public Shader blurShader;
-
         static Material m_Material;
         protected Material material
         {
@@ -36,12 +32,8 @@ namespace UnityStandardAssets.ImageEffects
         }
 
         public Material cutOutMaterial;
-
         public Camera bgCamera;
-
-
         public RenderTexture bgTargetTexture;
-
         private void OnEnable()
         {
 			if (Screen.width > 0 && Screen.height > 0) {
@@ -49,7 +41,6 @@ namespace UnityStandardAssets.ImageEffects
 				bgCamera.targetTexture = bgTargetTexture;
 			}
         }
-
         protected void OnDisable()
         {
             if (m_Material)
@@ -57,7 +48,6 @@ namespace UnityStandardAssets.ImageEffects
                 DestroyImmediate(m_Material);
             }
         }
-
         protected void Start()
         {
             // Disable if the shader can't run on the users graphics card
@@ -73,9 +63,7 @@ namespace UnityStandardAssets.ImageEffects
                 enabled = false;
                 return;
             }
-
         }
-
         // Performs one blur iteration.
         public void FourTapCone(RenderTexture source, RenderTexture dest, int iteration)
         {
@@ -87,7 +75,6 @@ namespace UnityStandardAssets.ImageEffects
                                    new Vector2(off, -off)
                 );
         }
-
         // Downsamples the texture to a quarter resolution.
         private void DownSample4x(RenderTexture source, RenderTexture dest)
         {
@@ -99,24 +86,17 @@ namespace UnityStandardAssets.ImageEffects
                                    new Vector2(off, -off)
                 );
         }
-
-
         // Called by the camera to apply the image effect
 		RenderTexture buffer;
 		RenderTexture buffer3;
 		RenderTexture buffer2;
         void OnRenderImage(RenderTexture source, RenderTexture destination)
         {
-			//if(!Application.isPlaying)
-			//	return;
-
             int rtW = source.width / 4;
             int rtH = source.height / 4;
             buffer = RenderTexture.GetTemporary(rtW, rtH, 0);
 			// Copy source to the 4x4 smaller texture.
 			DownSample4x(source, buffer);
-
-
             // Blur the small texture
             for (int i = 0; i < iterations; i++)
             {
@@ -124,15 +104,10 @@ namespace UnityStandardAssets.ImageEffects
 					FourTapCone (buffer, buffer2, i);
 					RenderTexture.ReleaseTemporary (buffer);
 					buffer = buffer2;
-            }
-
-
-     
+            }   
             Graphics.Blit(bgTargetTexture, destination); // background
 			Graphics.Blit(buffer, destination, cutOutMaterial); // water
             RenderTexture.ReleaseTemporary(buffer);
-
-
         }
     }
 }

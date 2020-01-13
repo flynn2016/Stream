@@ -13,6 +13,7 @@ public class LiquidSpawn : MonoBehaviour
     public float randomRange; //random spawn position at y direction
 
     public bool Liquidon { get; private set; }
+    public Transform parent;
     private float timer;
 
     void Start()
@@ -27,7 +28,7 @@ public class LiquidSpawn : MonoBehaviour
             if (timer > 1/flowRate)
             {
                 Vector3 random_spawn = new Vector3(this.transform.position.x + Random.Range(-randomRange, randomRange), this.transform.position.y, this.transform.position.z);
-                Instantiate(liquidParticle, random_spawn, Quaternion.identity, this.transform);
+                Instantiate(liquidParticle, random_spawn, Quaternion.identity, parent.transform);
                 timer = 0;
             }
         }
