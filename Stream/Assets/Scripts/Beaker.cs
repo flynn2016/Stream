@@ -6,7 +6,8 @@ public class Beaker : MonoBehaviour
 {
     public int water_threshold;
     public bool finished { get; private set;}
-    private int water_count;
+    private int water_count_1;
+    private int water_count_2;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,8 @@ public class Beaker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (water_count >= water_threshold)
+        if ((water_count_1 >= water_threshold&&this.name=="Beaker_1")&&
+            (water_count_2 >= water_threshold&&this.name =="Beaker_2"))
         {
             Debug.Log("here");
             finished = true;
@@ -26,6 +28,14 @@ public class Beaker : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        water_count++;
+        if (col.transform.name == "water_1")
+        {
+            water_count_1++;
+        }
+
+        else if (col.transform.name == "water_2")
+        {
+            water_count_2++;
+        }
     }
 }
