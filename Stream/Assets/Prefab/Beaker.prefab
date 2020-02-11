@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9180484722840352831}
   - component: {fileID: 5542557979421068674}
   - component: {fileID: 924400191645623620}
+  - component: {fileID: 6900548789673403956}
   m_Layer: 0
   m_Name: Beaker
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ed4cd57adcb4e4f0ea66a59c7d572a10, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb282aea397e28b469cfbcdbaf0eb1a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.88235295}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,18 +99,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.39725828, y: -3.354639}
+  m_Offset: {x: 0.17917174, y: -1.4945819}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 10}
+    oldSize: {x: 5, y: 5}
     newSize: {x: 10, y: 10}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.115695, y: 0.20093155}
+  m_Size: {x: 3.1497087, y: 0.31533384}
   m_EdgeRadius: 0
 --- !u!61 &9180484722840352828
 BoxCollider2D:
@@ -124,18 +125,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.4768538, y: 0.044137}
+  m_Offset: {x: -1.215015, y: 0.07563615}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 10}
+    oldSize: {x: 5, y: 5}
     newSize: {x: 10, y: 10}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4678049, y: 6.9102077}
+  m_Size: {x: 0.34566832, y: 3.413949}
   m_EdgeRadius: 0
 --- !u!61 &9180484722840352831
 BoxCollider2D:
@@ -150,18 +151,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.1543415, y: 0.044137}
+  m_Offset: {x: 1.5400789, y: 0.012641251}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 10}
+    oldSize: {x: 5, y: 5}
     newSize: {x: 10, y: 10}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5520673, y: 6.9102077}
+  m_Size: {x: 0.41032505, y: 3.3509512}
   m_EdgeRadius: 0
 --- !u!114 &5542557979421068674
 MonoBehaviour:
@@ -175,6 +176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a627cfe3f4e0ed459d08b81054ca3f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  water_threshold: 0
+  total_water_count: 0
+  water_colorcode: 0
 --- !u!95 &924400191645623620
 Animator:
   serializedVersion: 3
@@ -194,3 +198,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &6900548789673403956
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9180484722840352832}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.17634517, y: 1.8886701}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5, y: 5}
+    newSize: {x: 10, y: 10}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.2116876, y: 0.366884}
+  m_EdgeRadius: 0

@@ -5,7 +5,9 @@ using UnityEngine;
 public class LiquidSpawn : MonoBehaviour
 {
     public GameObject liquidParticle;
-
+    public Material alphacut;
+    public bool On;
+    public Color water_color;
     [Range(0,100)]
     public float flowRate; //how often instantiate water particle
 
@@ -16,9 +18,24 @@ public class LiquidSpawn : MonoBehaviour
     public Transform parent;
     private float timer;
 
+    void Awake()
+    {
+        if (alphacut != null)
+        {
+            alphacut.shader = Shader.Find("Water2D/Metaballs_Simple");
+        }
+    }
     void Start()
     {
-        
+        if (On)
+        {
+            TurnOnLiquid();
+        }
+        else
+        {
+            TurnOffLiquid();
+        }
+        SetWaterColor(water_color, "_Color_r");
     }
     void Update()
     {
@@ -28,10 +45,32 @@ public class LiquidSpawn : MonoBehaviour
             if (timer > 1/flowRate)
             {
                 Vector3 random_spawn = new Vector3(this.transform.position.x + Random.Range(-randomRange, randomRange), this.transform.position.y, this.transform.position.z);
-                Instantiate(liquidParticle, random_spawn, Quaternion.identity, parent.transform);
+                GameObject temp = Instantiate(liquidParticle, random_spawn, Quaternion.identity, parent.transform);
+                //born with color and tags
+                if (liquidParticle.name == "Particle_r")
+                {
+                    temp.GetComponent<Particle>().particle_color = GameController.Instance.color_r;
+                    temp.tag = "Particle_red";
+                }
+                else if (liquidParticle.name == "Particle_b")
+                {
+                    temp.GetComponent<Particle>().particle_color = GameController.Instance.color_b;
+                    temp.tag = "Particle_blue";
+                }
+                else if (liquidParticle.name == "Particle_g")
+                {
+                    temp.GetComponent<Particle>().particle_color = GameController.Instance.color_g;
+                    temp.tag = "Particle_green";
+                }
                 timer = 0;
             }
         }
+    }
+
+    public void SetWaterColor(Color color, string color_name)
+    {
+        if(alphacut!=null)
+        alphacut.SetColor(color_name, color);
     }
 
     public void TurnOnLiquid()
@@ -42,10 +81,5 @@ public class LiquidSpawn : MonoBehaviour
     public void TurnOffLiquid()
     {
         Liquidon = false;
-    }
-
-    public void SwapParticle()
-    {
-
     }
 }

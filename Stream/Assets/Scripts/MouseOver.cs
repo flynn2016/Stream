@@ -32,7 +32,15 @@ public class MouseOver : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log("here");
-        SceneManager.LoadScene("SampleScene");
+        if(this.name=="Start")
+            SceneManager.LoadScene("Levels");
+        else if(this.name == "Level1")
+            SceneManager.LoadScene("If");
+        else if (this.name == "Level2")
+            SceneManager.LoadScene("For");
+        else if (this.name == "Level3")
+            SceneManager.LoadScene("Array");
+        else if (this.name == "Level4")
+            SceneManager.LoadScene("level_4");
     }
 }

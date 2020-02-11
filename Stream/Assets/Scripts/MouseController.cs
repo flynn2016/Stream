@@ -8,8 +8,6 @@ public class MouseController : MonoBehaviour
     bool moving;
     LayerMask Moveable = 1 << 8;
     LayerMask Clickable = 1 << 9;
-    public Camera cam;
-
     private Vector2 offset;
     private Animator animator_holder;
 
@@ -17,7 +15,6 @@ public class MouseController : MonoBehaviour
     {
         Drag();
         Click();
-
     }
 
     private void Click()
@@ -33,7 +30,7 @@ public class MouseController : MonoBehaviour
                 }
                 else if (hit.collider.CompareTag("ChangeCondition"))
                 {
-                    hit.transform.parent.GetComponentInParent<Operation>().ChangeCondition();
+                    hit.transform.parent.GetComponentInParent<Operation>().ChangeCondition(hit.transform);
                 }
             }
         }
@@ -63,7 +60,7 @@ public class MouseController : MonoBehaviour
             {
                 Vector2 MousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
                 Vector3 temp = Camera.main.ScreenToWorldPoint(MousePosition);
-                currentSelection.position = new Vector3(temp.x-offset.x, temp.y-offset.y, 0);
+                currentSelection.position = new Vector3(temp.x-offset.x, currentSelection.position.y, 0);
             }
         }
         else

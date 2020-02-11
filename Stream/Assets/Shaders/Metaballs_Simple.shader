@@ -3,8 +3,9 @@
 Shader "Water2D/Metaballs_Simple" {
 Properties {    
     _MainTex ("Texture", 2D) = "white" { }    
-    _Color_1 ("Main color", Color) = (1,1,1,1)
-    _Color_2 ("Main color", Color) = (1,0,0,1)
+    _Color_r ("Color_1", Color) = (1,1,1,1)
+    _Color_g ("Color_2", Color) = (1,0,0,1)
+	_Color_b("Color_3", Color) = (1,0,0,1)
     _Cutoff ("Alpha cutoff", Range(0,1)) = 0.5
 
 	_Stroke ("Stroke alpha", Range(0,1)) = 0.1
@@ -24,8 +25,9 @@ SubShader {
 	#pragma vertex vert
 	#pragma fragment frag	
 	#include "UnityCG.cginc"	
-	float4 _Color_1;
-    float4 _Color_2;
+	float4 _Color_r;
+    float4 _Color_g;
+	float4 _Color_b;
 	sampler2D _MainTex;	
 	fixed _Cutoff;
 	fixed _Stroke;
@@ -69,13 +71,15 @@ SubShader {
 		} 
         else 
         {
-            if(texcol.g>0.5){
-                texcol = _Color_1;
+            if(texcol.r>0.5){
+                texcol = _Color_r;
             }
-            else if(texcol.r>0.5){
-                texcol = _Color_2;
+            else if(texcol.g>0.5){
+                texcol = _Color_g;
             }
-
+			else if (texcol.b>0.5) {
+				texcol = _Color_b;
+			}
 		}
 	 	return texcol;
 	 	

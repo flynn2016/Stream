@@ -10,6 +10,13 @@ TagManager:
   - StartOperation
   - SetCondition
   - ChangeCondition
+  - Beaker
+  - for_tube
+  - array_beaker
+  - Array_if
+  - Particle_red
+  - Particle_blue
+  - Particle_green
   layers:
   - Default
   - TransparentFX

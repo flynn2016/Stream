@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Particle : MonoBehaviour {
-    //public float lifetime;
-    //float timer;
+
     public float max_yspeed;
-
-
-	Rigidbody2D ridgebody;
+    public Color particle_color;
+    Rigidbody2D ridgebody;
 
 	void Start () {
         ridgebody = GetComponent<Rigidbody2D> ();
@@ -32,7 +30,7 @@ public class Particle : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Operation"))
+        if (collision.transform.CompareTag("Operation")) //destroy itself
         {
             Destroy(this.gameObject);
         }

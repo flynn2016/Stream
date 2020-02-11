@@ -5,26 +5,61 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public LiquidSpawn liquidSpawn_1;
-    public LiquidSpawn liquidSpawn_2;
+
+    private static GameController _instance;
+    public static GameController Instance { get { return _instance; } }
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+
+    public LiquidSpawn [] liquidSpawns;
     public Animator goodjob;
-    public Beaker [] beakers;
-    private bool all_finished;
+    public Container[] containers;
+    public bool all_finished;
+    public Color color_r;
+    public Color color_g;
+    public Color color_b;
 
     // Start is called before the first frame update
     void Start()
     {
-        liquidSpawn_1.TurnOnLiquid();
-        liquidSpawn_2.TurnOnLiquid();
+        liquidSpawns[0].SetWaterColor(color_r,"_Color_r");
+        if(liquidSpawns.Length>1)
+            liquidSpawns[1].SetWaterColor(color_g, "_Color_g");
+        if (liquidSpawns.Length > 2)
+            liquidSpawns[2].SetWaterColor(color_b, "_Color_b");
+
+        if (liquidSpawns.Length!=0)
+        {
+            liquidSpawns[0].TurnOnLiquid();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //hardcode for meeting
-        if (beakers[0].finished && beakers[1].finished)
+        all_finished = true;
+
+        for (int i=0;i<containers.Length;i++)
         {
-            all_finished = true;
+            all_finished &= containers[i].finished;
+        }
+
+        //hardcode for meeting
+        if (all_finished)
+        {
+            for (int i = 0; i < liquidSpawns.Length; i++)
+            {
+                liquidSpawns[i].TurnOffLiquid();
+            }
             goodjob.SetBool("passed",true);
         }
     }
@@ -32,6 +67,11 @@ public class GameController : MonoBehaviour
     public void LoadNextScene()
     {
         if (all_finished)
-        SceneManager.LoadScene("Array");
+        SceneManager.LoadScene("Levels");
+    }
+
+    public void ReStart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
