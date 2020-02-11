@@ -63,6 +63,7 @@ public class Arrayoperation : Operation
         {
             water_color = array_colors[for_current -1];
             GameController.Instance.color_r = water_color;
+            liquidOutput.water_color = water_color;
             liquidOutput.SetWaterColor(water_color, "_Color_r");            
         }
     }

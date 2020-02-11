@@ -30,6 +30,7 @@ public class LiquidSpawn : MonoBehaviour
         if (On)
         {
             TurnOnLiquid();
+            SetWaterColor(water_color,"_Color_r");
         }
         else
         {
@@ -38,7 +39,6 @@ public class LiquidSpawn : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(GameController.Instance.color_r);
         if (Liquidon)
         {
             timer += Time.deltaTime;
@@ -49,8 +49,10 @@ public class LiquidSpawn : MonoBehaviour
                 //born with color and tags
                 if (liquidParticle.name == "Particle_r")
                 {
+                    GameController.Instance.color_r = water_color;
                     temp.GetComponent<Particle>().particle_color = GameController.Instance.color_r;
                     temp.tag = "Particle_red";
+                    SetWaterColor(water_color, "_Color_r");
                 }
                 else if (liquidParticle.name == "Particle_b")
                 {

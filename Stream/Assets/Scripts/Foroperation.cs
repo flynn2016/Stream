@@ -26,6 +26,8 @@ public class Foroperation : Operation
             {
                 curr_state = forStates.releasing_water;
                 operating = true;
+                temp_pos = this.transform.position;
+                temp_pos.x -= 0.8f;
             }
         }
     }
@@ -37,9 +39,8 @@ public class Foroperation : Operation
     public Transform number_transform;
     public SpriteRenderer lighton;
     public SpriteRenderer lightoff;
-    public Transform target;
 
-    private Transform target_container;
+    private Color water_color;
     public int total_water;
     public int curr_water;
     public bool filled { private set; get; }
@@ -50,6 +51,7 @@ public class Foroperation : Operation
     private bool lerp_finished = true;
     private bool operating;
     private int loop_times;
+    private Vector2 temp_pos;
     public enum forStates { idle, accepting_water, full, releasing_water};
     private forStates curr_state;
 
@@ -57,9 +59,7 @@ public class Foroperation : Operation
     void Start()
     {
         curr_water = total_water;
-        target_container = target;
         liquidoutput.TurnOffLiquid();
-        measure_transform.GetComponent<SpriteRenderer>().color = liquidinput.GetComponent<LiquidSpawn>().water_color;
     }
 
     // Update is called once per frame
@@ -73,6 +73,7 @@ public class Foroperation : Operation
 
         else if (curr_state == forStates.accepting_water)
         {
+            DetectColor();
             Accept_water();
             ChangeNumber();
             Checkfilled();
@@ -122,6 +123,13 @@ public class Foroperation : Operation
         measure_transform.localPosition = new Vector2(measure_transform.localPosition.x, -5 + 5 * (float)curr_water / total_water);
     }
 
+    void DetectColor()
+    {
+        //detecting water color
+        measure_transform.GetComponent<SpriteRenderer>().color = water_color;
+        liquidoutput.GetComponent<LiquidSpawn>().water_color = water_color;
+    }
+
     void StartOperation()
     {
         if (operating)
@@ -140,7 +148,7 @@ public class Foroperation : Operation
             }
             else
             {
-                this.transform.position = new Vector2(target_container.position.x+0.7f +3*loop_times, transform.position.y);
+                this.transform.position = new Vector2(temp_pos.x+0.7f +3*loop_times, transform.position.y);
                 liquidoutput.TurnOnLiquid();
             }
         }
@@ -223,6 +231,7 @@ public class Foroperation : Operation
     }
     void OnTriggerEnter2D(Collider2D col)
     {
+        water_color = col.transform.GetComponent<Particle>().particle_color;
         water_count++;
     }
 }

@@ -31,11 +31,11 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        liquidSpawns[0].SetWaterColor(color_r,"_Color_r");
-        if(liquidSpawns.Length>1)
-            liquidSpawns[1].SetWaterColor(color_g, "_Color_g");
-        if (liquidSpawns.Length > 2)
-            liquidSpawns[2].SetWaterColor(color_b, "_Color_b");
+        //liquidSpawns[0].SetWaterColor(color_r,"_Color_r");
+        //if(liquidSpawns.Length>1)
+        //    liquidSpawns[1].SetWaterColor(color_g, "_Color_g");
+        //if (liquidSpawns.Length > 2)
+        //    liquidSpawns[2].SetWaterColor(color_b, "_Color_b");
 
         if (liquidSpawns.Length!=0)
         {

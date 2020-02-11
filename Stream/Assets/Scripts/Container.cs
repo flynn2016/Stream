@@ -6,7 +6,6 @@ public class Container : MonoBehaviour
 {
     public int water_threshold;
     public bool finished { get; private set; }
-    public int correct_index;
 
     public bool target_red;
     public bool target_green;
