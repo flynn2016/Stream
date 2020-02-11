@@ -666,7 +666,7 @@ MonoBehaviour:
   - {fileID: 123992627}
   - {fileID: 620326430}
   all_finished: 0
-  color_r: {r: 0, g: 0, b: 0, a: 0}
+  color_r: {r: 0.21226418, g: 0.47789222, b: 1, a: 1}
   color_g: {r: 0, g: 0, b: 0, a: 0}
   color_b: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &545686949
@@ -865,7 +865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5958a6fdbb1401a881e49196fc9fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!84 &766371595
+--- !u!84 &923863001
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -878,8 +878,8 @@ RenderTexture:
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
   serializedVersion: 3
-  m_Width: 1130
-  m_Height: 570
+  m_Width: 640
+  m_Height: 480
   m_AntiAliasing: 1
   m_MipCount: -1
   m_DepthFormat: 1
@@ -900,7 +900,7 @@ RenderTexture:
     m_WrapW: 1
   m_Dimension: 2
   m_VolumeDepth: 1
---- !u!84 &923863001
+--- !u!84 &1173317253
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -913,8 +913,8 @@ RenderTexture:
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
   serializedVersion: 3
-  m_Width: 640
-  m_Height: 480
+  m_Width: 1119
+  m_Height: 570
   m_AntiAliasing: 1
   m_MipCount: -1
   m_DepthFormat: 1
@@ -1750,6 +1750,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: For_operation
       objectReference: {fileID: 0}
+    - target: {fileID: 264867678680249997, guid: b1bd1a89f49ebe148a5857b1d396bc31,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 497680174}
+    - target: {fileID: 264867678680249997, guid: b1bd1a89f49ebe148a5857b1d396bc31,
+        type: 3}
+      propertyPath: liquidParticle
+      value: 
+      objectReference: {fileID: 199430, guid: 5b89a2e8d867141afa2c95040fcb1b12, type: 3}
     - target: {fileID: 8205514635989313250, guid: b1bd1a89f49ebe148a5857b1d396bc31,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1815,16 +1825,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1579495388}
-    - target: {fileID: 264867678680249997, guid: b1bd1a89f49ebe148a5857b1d396bc31,
-        type: 3}
-      propertyPath: parent
-      value: 
-      objectReference: {fileID: 497680174}
-    - target: {fileID: 264867678680249997, guid: b1bd1a89f49ebe148a5857b1d396bc31,
-        type: 3}
-      propertyPath: liquidParticle
-      value: 
-      objectReference: {fileID: 199430, guid: 5b89a2e8d867141afa2c95040fcb1b12, type: 3}
     - target: {fileID: 8205514636302945911, guid: b1bd1a89f49ebe148a5857b1d396bc31,
         type: 3}
       propertyPath: Detect_red

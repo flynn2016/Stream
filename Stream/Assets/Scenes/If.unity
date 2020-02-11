@@ -231,7 +231,7 @@ MonoBehaviour:
   - {fileID: 1392714930}
   - {fileID: 1714750411}
   all_finished: 0
-  color_r: {r: 1, g: 0, b: 0.7737832, a: 1}
+  color_r: {r: 0.6, g: 0.49803922, b: 0.69803923, a: 1}
   color_g: {r: 1, g: 0, b: 0, a: 1}
   color_b: {r: 0, g: 0, b: 1, a: 1}
 --- !u!4 &75977928
@@ -248,41 +248,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!84 &204117113
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 1130
-  m_Height: 570
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 1
-  m_ColorFormat: 8
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &216361014
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +357,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1573399068}
+      objectReference: {fileID: 1443719755}
     - target: {fileID: 6200582024934476846, guid: 260f8a927a5e2c3479cee6ec91f61b88,
         type: 3}
       propertyPath: orthographic size
@@ -845,6 +810,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!84 &811703727
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 1119
+  m_Height: 570
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 1
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!84 &818249132
 RenderTexture:
   m_ObjectHideFlags: 0
@@ -1049,7 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5958a6fdbb1401a881e49196fc9fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!84 &1573399068
+--- !u!84 &1443719755
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1116,6 +1116,31 @@ PrefabInstance:
       propertyPath: liquidParticle
       value: 
       objectReference: {fileID: 199430, guid: 5b89a2e8d867141afa2c95040fcb1b12, type: 3}
+    - target: {fileID: 8246979144129674615, guid: 595e22b0d2e32439d9b1b868ffc0d16a,
+        type: 3}
+      propertyPath: On
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246979144129674615, guid: 595e22b0d2e32439d9b1b868ffc0d16a,
+        type: 3}
+      propertyPath: water_color.r
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246979144129674615, guid: 595e22b0d2e32439d9b1b868ffc0d16a,
+        type: 3}
+      propertyPath: water_color.g
+      value: 0.49803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246979144129674615, guid: 595e22b0d2e32439d9b1b868ffc0d16a,
+        type: 3}
+      propertyPath: water_color.b
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246979144129674615, guid: 595e22b0d2e32439d9b1b868ffc0d16a,
+        type: 3}
+      propertyPath: water_color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8246979144129674614, guid: 595e22b0d2e32439d9b1b868ffc0d16a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1660,6 +1685,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.35
       objectReference: {fileID: 0}
+    - target: {fileID: 859252395762001807, guid: 8314aff92798c0f449644d1a8c34cfed,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 903489605558464619, guid: 8314aff92798c0f449644d1a8c34cfed,
         type: 3}
       propertyPath: m_RootOrder
@@ -1681,11 +1711,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e23cef58d430c9943b9fad54710ed142,
         type: 3}
-    - target: {fileID: 859252395762001807, guid: 8314aff92798c0f449644d1a8c34cfed,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7054355387868235641, guid: 8314aff92798c0f449644d1a8c34cfed,
         type: 3}
       propertyPath: m_Color.r

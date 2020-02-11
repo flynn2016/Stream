@@ -35,10 +35,10 @@ public class LiquidSpawn : MonoBehaviour
         {
             TurnOffLiquid();
         }
-        SetWaterColor(water_color, "_Color_r");
     }
     void Update()
     {
+        Debug.Log(GameController.Instance.color_r);
         if (Liquidon)
         {
             timer += Time.deltaTime;
