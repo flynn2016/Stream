@@ -17,6 +17,7 @@ TagManager:
   - Particle_red
   - Particle_blue
   - Particle_green
+  - Icon
   layers:
   - Default
   - TransparentFX
