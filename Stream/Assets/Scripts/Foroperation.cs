@@ -41,6 +41,8 @@ public class Foroperation : Operation
     public SpriteRenderer lightoff;
 
     private Color water_color;
+    private GameObject curr_particle;
+
     public int total_water;
     public int curr_water;
     public bool filled { private set; get; }
@@ -52,7 +54,7 @@ public class Foroperation : Operation
     private bool operating;
     private int loop_times;
     private Vector2 temp_pos;
-    public enum forStates { idle, accepting_water, full, releasing_water};
+    public enum forStates {idle, accepting_water, full, releasing_water};
     private forStates curr_state;
 
     // Start is called before the first frame update
@@ -232,6 +234,27 @@ public class Foroperation : Operation
     void OnTriggerEnter2D(Collider2D col)
     {
         water_color = col.transform.GetComponent<Particle>().particle_color;
+        if (col.tag == "Particle_red")
+        {
+            liquidoutput.liquidParticle = GameController.Instance.particle_r;
+            outputcount.Detect_red = true;
+            outputcount.Detect_blue = false;
+            outputcount.Detect_green = false;
+        }
+        else if (col.tag == "Particle_green")
+        {
+            liquidoutput.liquidParticle = GameController.Instance.particle_g;
+            outputcount.Detect_red = false;
+            outputcount.Detect_blue = false;
+            outputcount.Detect_green = true;
+        }
+        else if (col.tag == "Particle_blue")
+        {
+            liquidoutput.liquidParticle = GameController.Instance.particle_b;
+            outputcount.Detect_red = false;
+            outputcount.Detect_blue = true;
+            outputcount.Detect_green = false;
+        }
         water_count++;
     }
 }

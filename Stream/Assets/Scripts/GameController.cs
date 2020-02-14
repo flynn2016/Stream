@@ -19,7 +19,9 @@ public class GameController : MonoBehaviour
             _instance = this;
         }
     }
-
+    public GameObject particle_r;
+    public GameObject particle_g;
+    public GameObject particle_b;
     public LiquidSpawn [] liquidSpawns;
     public Animator goodjob;
     public Container[] containers;
