@@ -32,11 +32,6 @@ public class MouseController : MonoBehaviour
                 {
                     hit.transform.parent.GetComponentInParent<Operation>().ChangeCondition(hit.transform);
                 }
-                
-                else if (hit.collider.CompareTag("Icon"))
-                {
-                    hit.transform.GetComponent<Icon>().MouseOn();
-                }
             }
         }
     }

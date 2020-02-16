@@ -23,19 +23,21 @@ public class Arrayoperation : Operation
         operation_started = !operation_started;
         if (operation_started&&for_current!=0)
         {
+            button.GetComponent<SpriteRenderer>().enabled = false;
+            button_pressed.GetComponent<SpriteRenderer>().enabled = true;
             liquidOutput.TurnOnLiquid();
             started = true;
         }
         else
         {
+            button.GetComponent<SpriteRenderer>().enabled = true;
+            button_pressed.GetComponent<SpriteRenderer>().enabled = false;
             liquidOutput.TurnOffLiquid();
-            if (ifoperation != null)
-            {
-                ifoperation.operation_started = false;
-            }
         }
     }
-    public Ifoperation ifoperation;
+
+    public Transform button;
+    public Transform button_pressed;
     public LiquidSpawn liquidOutput;
     public Transform number_transform;
     public Color water_color;

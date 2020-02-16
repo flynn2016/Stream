@@ -24,6 +24,8 @@ public class Foroperation : Operation
         {
             if (curr_state == forStates.full)
             {
+                button.GetComponent<SpriteRenderer>().enabled = false;
+                button_pressed.GetComponent<SpriteRenderer>().enabled = true;
                 curr_state = forStates.releasing_water;
                 operating = true;
                 temp_pos = this.transform.position;
@@ -31,7 +33,8 @@ public class Foroperation : Operation
             }
         }
     }
-
+    public Transform button;
+    public Transform button_pressed;
     public TriggerCounter outputcount;
     public LiquidSpawn liquidoutput;
     public LiquidSpawn liquidinput;

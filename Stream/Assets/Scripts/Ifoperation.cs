@@ -10,19 +10,17 @@ public class Ifoperation : Operation
         {
             liquidoutput1.TurnOnLiquid();
             liquidoutput2.TurnOnLiquid();
-        }
-        else
-        {
-            liquidoutput1.TurnOffLiquid();
-            liquidoutput2.TurnOffLiquid();
-        }
-        if (!operation_started&&accepting_water)
-        {
             operation_started = true;
+            button.GetComponent<SpriteRenderer>().enabled = false;
+            button_pressed.GetComponent<SpriteRenderer>().enabled = true;
         }
         else
         {
             operation_started = false;
+            liquidoutput1.TurnOffLiquid();
+            liquidoutput2.TurnOffLiquid();
+            button.GetComponent<SpriteRenderer>().enabled = true;
+            button_pressed.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 
@@ -31,6 +29,8 @@ public class Ifoperation : Operation
         turning = true;
     }
 
+    public Transform button;
+    public Transform button_pressed;
     public LiquidSpawn liquidoutput1;
     public LiquidSpawn liquidoutput2;
     public GameObject Particle_1;
@@ -64,7 +64,6 @@ public class Ifoperation : Operation
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(curr_state);
         if(curr_state == ifStates.idle)
         {
             Idle();

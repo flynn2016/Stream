@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
             _instance = this;
         }
     }
+    public SpriteRenderer instruction;
     public GameObject particle_r;
     public GameObject particle_g;
     public GameObject particle_b;
@@ -30,15 +31,13 @@ public class GameController : MonoBehaviour
     public Color color_g;
     public Color color_b;
 
+    private static int test;
+
     // Start is called before the first frame update
     void Start()
     {
-        //liquidSpawns[0].SetWaterColor(color_r,"_Color_r");
-        //if(liquidSpawns.Length>1)
-        //    liquidSpawns[1].SetWaterColor(color_g, "_Color_g");
-        //if (liquidSpawns.Length > 2)
-        //    liquidSpawns[2].SetWaterColor(color_b, "_Color_b");
-
+        Debug.Log(test);
+        test++;
         if (liquidSpawns.Length!=0)
         {
             liquidSpawns[0].TurnOnLiquid();
@@ -70,10 +69,5 @@ public class GameController : MonoBehaviour
     {
         if (all_finished)
         SceneManager.LoadScene("Levels");
-    }
-
-    public void ReStart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
