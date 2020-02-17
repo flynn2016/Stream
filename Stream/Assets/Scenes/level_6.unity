@@ -139,41 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a627cfe3f4e0ed459d08b81054ca3f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!84 &202539078
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 640
-  m_Height: 480
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 1
-  m_ColorFormat: 59
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &228582220
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +322,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 202539078}
+      objectReference: {fileID: 392090900}
     - target: {fileID: 6200582024934476846, guid: 260f8a927a5e2c3479cee6ec91f61b88,
         type: 3}
       propertyPath: orthographic size
@@ -501,6 +466,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50d669949d56d4106bb8ff3b8eb41418, type: 3}
+--- !u!84 &392090900
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 640
+  m_Height: 480
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 1
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &497680172
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +634,9 @@ MonoBehaviour:
   containers:
   - {fileID: 1579495393}
   - {fileID: 123992627}
-  - {fileID: 620326430}
+  - {fileID: 1258847977}
+  - {fileID: 1251501070}
+  - {fileID: 681838335}
   all_finished: 0
   color_r: {r: 0, g: 0, b: 0, a: 0}
   color_g: {r: 0, g: 0, b: 0, a: 0}
@@ -659,18 +661,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1978141800}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &620326430 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
-    type: 3}
-  m_PrefabInstance: {fileID: 1978141800}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a627cfe3f4e0ed459d08b81054ca3f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &635713566
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,18 +809,61 @@ PrefabInstance:
       propertyPath: m_Name
       value: test_tube_3
       objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378030, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c7c3b2e765631e94283f4a8dc941d32c,
+        type: 3}
     - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
         type: 3}
       propertyPath: water_threshold
-      value: 80
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
         type: 3}
       propertyPath: target_blue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.r
+      value: 0.83921576
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.g
+      value: 0.043137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.b
+      value: 0.10588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_green
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50b8eb7a875b111449134cc883c5b9af, type: 3}
+--- !u!114 &681838335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+    type: 3}
+  m_PrefabInstance: {fileID: 681838334}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a627cfe3f4e0ed459d08b81054ca3f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &712274632 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8246979144129674615, guid: 595e22b0d2e32439d9b1b868ffc0d16a,
@@ -861,41 +894,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5958a6fdbb1401a881e49196fc9fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!84 &911561718
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 1490
-  m_Height: 810
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 1
-  m_ColorFormat: 59
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &922365943
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,18 +1466,61 @@ PrefabInstance:
       propertyPath: m_Name
       value: test_tube_2
       objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378030, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c7c3b2e765631e94283f4a8dc941d32c,
+        type: 3}
     - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
         type: 3}
       propertyPath: water_threshold
-      value: 80
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
         type: 3}
       propertyPath: target_blue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.r
+      value: 0.83921576
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.g
+      value: 0.043137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.b
+      value: 0.10588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_green
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50b8eb7a875b111449134cc883c5b9af, type: 3}
+--- !u!114 &1251501070 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+    type: 3}
+  m_PrefabInstance: {fileID: 1251501069}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a627cfe3f4e0ed459d08b81054ca3f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1258847976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1557,18 +1598,61 @@ PrefabInstance:
       propertyPath: m_Name
       value: test_tube_1
       objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378030, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c7c3b2e765631e94283f4a8dc941d32c,
+        type: 3}
     - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
         type: 3}
       propertyPath: water_threshold
-      value: 80
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
         type: 3}
       propertyPath: target_blue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.r
+      value: 0.83921576
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.g
+      value: 0.043137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.b
+      value: 0.10588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_green
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50b8eb7a875b111449134cc883c5b9af, type: 3}
+--- !u!114 &1258847977 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+    type: 3}
+  m_PrefabInstance: {fileID: 1258847976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a627cfe3f4e0ed459d08b81054ca3f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1268760595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,18 +1867,84 @@ PrefabInstance:
       propertyPath: m_Name
       value: test_tube_2
       objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378030, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6eea349c694c7a64ca086b2fca6a782c,
+        type: 3}
     - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
         type: 3}
       propertyPath: water_threshold
-      value: 80
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
         type: 3}
       propertyPath: target_green
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.g
+      value: 0.2784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.b
+      value: 0.6156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_blue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: check_color
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50b8eb7a875b111449134cc883c5b9af, type: 3}
+--- !u!84 &1296521485
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 1920
+  m_Height: 947
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 1
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1297327892
 GameObject:
   m_ObjectHideFlags: 0
@@ -3056,14 +3206,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: test_tube_3
       objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378005, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378030, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6eea349c694c7a64ca086b2fca6a782c,
+        type: 3}
     - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
         type: 3}
       propertyPath: water_threshold
-      value: 80
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
         type: 3}
       propertyPath: target_green
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_blue
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3307,15 +3473,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: test_tube_1
       objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378030, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6eea349c694c7a64ca086b2fca6a782c,
+        type: 3}
     - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
         type: 3}
       propertyPath: water_threshold
-      value: 80
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
         type: 3}
       propertyPath: target_green
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.g
+      value: 0.2784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.b
+      value: 0.6156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: target_blue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701404728231378031, guid: 50b8eb7a875b111449134cc883c5b9af,
+        type: 3}
+      propertyPath: check_color
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50b8eb7a875b111449134cc883c5b9af, type: 3}

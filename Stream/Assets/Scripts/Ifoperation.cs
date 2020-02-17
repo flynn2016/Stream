@@ -42,7 +42,7 @@ public class Ifoperation : Operation
     ifStates curr_state;
 
     private bool turning;
-    private int count;
+    private float count;
     private bool accepting_water;
     private Color accept_color;
     private int water_count;
@@ -82,6 +82,12 @@ public class Ifoperation : Operation
             liquidoutput1.TurnOffLiquid();
             liquidoutput2.TurnOffLiquid();
         }
+    }
+
+    void FixedUpdate()
+    {
+        CheckCondition();
+
     }
 
     void Idle()
@@ -141,14 +147,10 @@ public class Ifoperation : Operation
             GameController.Instance.color_b = green;
         }
 
-
-
-
         condition_1.GetComponent<SpriteRenderer>().color =
                Color.Lerp(condition_1.GetComponent<SpriteRenderer>().color,cond_1, 0.1f);
         condition_2.GetComponent<SpriteRenderer>().color =
             Color.Lerp(condition_2.GetComponent<SpriteRenderer>().color, cond_2, 0.1f);
-        CheckCondition();
         if (timer%60 >= 1f)
         {
             if (water_count == water_count_prev)
@@ -199,13 +201,13 @@ public class Ifoperation : Operation
     {
         if (turning)
         {
-            count += 5;
-            condition_1.eulerAngles = new Vector3(condition_1.eulerAngles.x, condition_1.eulerAngles.y, condition_1.eulerAngles.z + 5);
-            condition_2.eulerAngles = new Vector3(condition_2.eulerAngles.x, condition_2.eulerAngles.y, condition_2.eulerAngles.z + 5);
+            count += 500f * Time.deltaTime; 
+            condition_1.eulerAngles = new Vector3(condition_1.eulerAngles.x, condition_1.eulerAngles.y, condition_1.eulerAngles.z + 500f*Time.deltaTime);
+            condition_2.eulerAngles = new Vector3(condition_2.eulerAngles.x, condition_2.eulerAngles.y, condition_2.eulerAngles.z + 500f*Time.deltaTime);
 
-            if (count == 180)
+            if (Mathf.Abs(count - 180)<1f)
             {
-                count = 0;
+                count = 0; 
                 turning = false;
             }
         }

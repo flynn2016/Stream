@@ -9,7 +9,6 @@ public class MouseController : MonoBehaviour
     LayerMask Moveable = 1 << 8;
     LayerMask Clickable = 1 << 9;
     private Vector2 offset;
-    private Animator animator_holder;
 
     private void Update()
     {

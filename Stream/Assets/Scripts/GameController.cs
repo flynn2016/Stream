@@ -31,13 +31,14 @@ public class GameController : MonoBehaviour
     public Color color_g;
     public Color color_b;
 
-    private static int test;
+    public static bool level_unlock;
+    private static bool level_1_passed;
+    private static bool level_2_passed;
+    private static bool level_3_passed;
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(test);
-        test++;
         if (liquidSpawns.Length!=0)
         {
             liquidSpawns[0].TurnOnLiquid();
@@ -61,7 +62,25 @@ public class GameController : MonoBehaviour
             {
                 liquidSpawns[i].TurnOffLiquid();
             }
+
             goodjob.SetBool("passed",true);
+            if (SceneManager.GetActiveScene().name == "If")
+            {
+                level_1_passed = true;
+            }
+            else if (SceneManager.GetActiveScene().name == "For")
+            {
+                level_2_passed = true;
+            }
+            else if (SceneManager.GetActiveScene().name == "Array")
+            {
+                level_3_passed = true;
+            }
+
+            if (level_1_passed && level_2_passed && level_3_passed)
+            {
+                level_unlock = true;
+            }
         }
     }
 

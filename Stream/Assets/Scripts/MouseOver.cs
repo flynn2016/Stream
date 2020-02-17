@@ -42,5 +42,9 @@ public class MouseOver : MonoBehaviour
             SceneManager.LoadScene("Array");
         else if (this.name == "Level4")
             SceneManager.LoadScene("level_4");
+        else if (this.name == "Level5")
+            SceneManager.LoadScene("level_5");
+        else if (this.name == "Level6")
+            SceneManager.LoadScene("level_6");
     }
 }

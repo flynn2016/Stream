@@ -8,13 +8,14 @@ public class Foroperation : Operation
     {
         if (button.name == "for_up_collider")
         {
-            if (for_number != 0 && lerp_finished && !operating)
-                for_number--;
+            if (for_number != 4 && lerp_finished && !operating)
+                for_number++;
+
         }
         else if (button.name == "for_down_collider")
         {
-            if (for_number != 4 && lerp_finished && !operating)
-                for_number++;
+            if (for_number != 0 && lerp_finished && !operating)
+                for_number--;
         }
     }
 
@@ -28,9 +29,14 @@ public class Foroperation : Operation
                 button_pressed.GetComponent<SpriteRenderer>().enabled = true;
                 curr_state = forStates.releasing_water;
                 operating = true;
+                operation_started = true;
                 temp_pos = this.transform.position;
                 temp_pos.x -= 0.8f;
             }
+        }
+        else
+        {
+            operation_started = false;
         }
     }
     public Transform button;
@@ -50,7 +56,8 @@ public class Foroperation : Operation
     public int curr_water;
     public bool filled { private set; get; }
     private int water_count;
-    private int water_count_prev;
+    private int water_count_green;
+    private int water_count_blue;
     private int for_number;
     private int for_current;
     private bool lerp_finished = true;
@@ -113,6 +120,7 @@ public class Foroperation : Operation
 
     void Accept_water()
     {
+
     }
 
     void Release_water()
@@ -202,7 +210,7 @@ public class Foroperation : Operation
         if (!lerp_finished)
         {
             number_transform.localPosition = Vector2.Lerp(new Vector2(number_transform.localPosition.x, number_transform.localPosition.y),
-            new Vector2(number_transform.localPosition.x, dest_y), 0.05f);
+            new Vector2(number_transform.localPosition.x, dest_y), 5f*Time.deltaTime);
         }
 
         if (Mathf.Abs(number_transform.transform.localPosition.y - dest_y) < 0.05f)
@@ -216,7 +224,10 @@ public class Foroperation : Operation
     {
         if (filled)
         {
-            liquidinput.TurnOffLiquid();
+            if (liquidinput != null)
+            {
+                liquidinput.TurnOffLiquid();
+            }
             curr_state = forStates.full;
         }
 
@@ -236,27 +247,38 @@ public class Foroperation : Operation
     }
     void OnTriggerEnter2D(Collider2D col)
     {
-        water_color = col.transform.GetComponent<Particle>().particle_color;
-        if (col.tag == "Particle_red")
+        if (water_count_blue > 0 && water_count_green > 0)
         {
+            water_color = GameController.Instance.color_r;
             liquidoutput.liquidParticle = GameController.Instance.particle_r;
-            outputcount.Detect_red = true;
-            outputcount.Detect_blue = false;
-            outputcount.Detect_green = false;
         }
-        else if (col.tag == "Particle_green")
+        else
         {
-            liquidoutput.liquidParticle = GameController.Instance.particle_g;
-            outputcount.Detect_red = false;
-            outputcount.Detect_blue = false;
-            outputcount.Detect_green = true;
-        }
-        else if (col.tag == "Particle_blue")
-        {
-            liquidoutput.liquidParticle = GameController.Instance.particle_b;
-            outputcount.Detect_red = false;
-            outputcount.Detect_blue = true;
-            outputcount.Detect_green = false;
+            water_color = col.transform.GetComponent<Particle>().particle_color;
+
+            if (col.tag == "Particle_red")
+            {
+                liquidoutput.liquidParticle = GameController.Instance.particle_r;
+                outputcount.Detect_red = true;
+                outputcount.Detect_blue = false;
+                outputcount.Detect_green = false;
+            }
+            else if (col.tag == "Particle_green")
+            {
+                liquidoutput.liquidParticle = GameController.Instance.particle_g;
+                outputcount.Detect_red = false;
+                outputcount.Detect_blue = false;
+                outputcount.Detect_green = true;
+                water_count_green++;
+            }
+            else if (col.tag == "Particle_blue")
+            {
+                liquidoutput.liquidParticle = GameController.Instance.particle_b;
+                outputcount.Detect_red = false;
+                outputcount.Detect_blue = true;
+                outputcount.Detect_green = false;
+                water_count_blue++;
+            }
         }
         water_count++;
     }

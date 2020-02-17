@@ -8,13 +8,13 @@ public class Arrayoperation : Operation
     {
         if (button.name == "array_up_collider")
         {
-            if (for_number != 0 && lerp_finished&&!operation_started)
-                for_number--;
+            if (for_number != 4 && lerp_finished && !operation_started)
+                for_number++;
         }
         else if (button.name == "array_down_collider")
         {
-            if (for_number != 4 && lerp_finished&&!operation_started)
-                for_number++;
+            if (for_number != 0 && lerp_finished && !operation_started)
+                for_number--;
         }
     }
     public override void Toggle()
@@ -114,7 +114,7 @@ public class Arrayoperation : Operation
         if (!lerp_finished)
         {
             number_transform.localPosition = Vector2.Lerp(new Vector2(number_transform.localPosition.x, number_transform.localPosition.y),
-            new Vector2(number_transform.localPosition.x, dest_y), 0.05f);
+            new Vector2(number_transform.localPosition.x, dest_y), 5f*Time.deltaTime);
         }
 
         if (Mathf.Abs(number_transform.transform.localPosition.y - dest_y) < 0.05f)
