@@ -1,17 +1,10 @@
 ﻿<Properties StartupConfiguration="{32B7CA11-2FA6-7882-F28B-45172753601B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Foroperation.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MouseOver.cs">
     <Files>
-      <File FileName="Assets/Scripts/Ifoperation.cs" Line="44" Column="8" />
-      <File FileName="Assets/Scripts/Foroperation.cs" Line="229" Column="45" />
-      <File FileName="Assets/Scripts/Arrayoperation.cs" />
-      <File FileName="Assets/Scripts/LiquidSpawn.cs" />
-      <File FileName="Assets/Scripts/Particle.cs" />
-      <File FileName="Assets/Scripts/Operation.cs" />
-      <File FileName="Assets/Scripts/MetaballCameraEffect.cs" />
       <File FileName="Assets/Scripts/GameController.cs" Line="34" Column="20" />
-      <File FileName="Assets/Scripts/Container.cs" />
-      <File FileName="Assets/Scripts/MouseController.cs" />
-      <File FileName="Assets/Scripts/Icon.cs" />
+      <File FileName="Assets/Scripts/Icon.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MouseController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MouseOver.cs" Line="63" Column="40" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,7 +12,7 @@
           <Node name="Stream" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Foroperation.cs" selected="True" />
+                <Node name="MouseOver.cs" selected="True" />
               </Node>
               <Node name="Shaders" expanded="True" />
             </Node>

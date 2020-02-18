@@ -39,12 +39,17 @@ public class MouseOver : MonoBehaviour
 
         if(this.name == "NextLevel")
         {
-            if(SceneManager.GetActiveScene().name == "If")
+            if (SceneManager.GetActiveScene().name == "If")
                 SceneManager.LoadScene("For");
             else if (SceneManager.GetActiveScene().name == "For")
                 SceneManager.LoadScene("Array");
             else if (SceneManager.GetActiveScene().name == "Array")
-                SceneManager.LoadScene("level_4");
+            {
+                if(GameController.level_unlock)
+                    SceneManager.LoadScene("level_4");
+                else
+                    SceneManager.LoadScene("Levels");
+            }
             else if (SceneManager.GetActiveScene().name == "level_4")
                 SceneManager.LoadScene("level_5");
             else if (SceneManager.GetActiveScene().name == "level_5")

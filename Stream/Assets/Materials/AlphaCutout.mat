@@ -82,7 +82,7 @@ Material:
     - _Color_3: {r: 0.2, g: 0.6, b: 1, a: 1}
     - _Color_b: {r: 0.2, g: 0.6, b: 1, a: 1}
     - _Color_g: {r: 1, g: 0.39215687, b: 0.39215687, a: 1}
-    - _Color_r: {r: 0.6, g: 0.49803922, b: 0.69803923, a: 1}
+    - _Color_r: {r: 0.9, g: 0, b: 0.14, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _StrokeColor: {r: 0, g: 0, b: 0, a: 1}
     - _StrokeColor_2: {r: 0, g: 0, b: 0, a: 1}
