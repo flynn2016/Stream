@@ -13,6 +13,7 @@ public class Ifoperation : Operation
             operation_started = true;
             button.GetComponent<SpriteRenderer>().enabled = false;
             button_pressed.GetComponent<SpriteRenderer>().enabled = true;
+            AudioManager.Instance.Play_buttonon();
         }
         else
         {
@@ -21,11 +22,13 @@ public class Ifoperation : Operation
             liquidoutput2.TurnOffLiquid();
             button.GetComponent<SpriteRenderer>().enabled = true;
             button_pressed.GetComponent<SpriteRenderer>().enabled = false;
+            AudioManager.Instance.Play_buttonoff();
         }
     }
 
     public override void ChangeCondition(Transform button)
     {
+        AudioManager.Instance.Play_turning();
         turning = true;
     }
 
@@ -201,9 +204,9 @@ public class Ifoperation : Operation
     {
         if (turning)
         {
-            count += 500f * Time.deltaTime; 
-            condition_1.eulerAngles = new Vector3(condition_1.eulerAngles.x, condition_1.eulerAngles.y, condition_1.eulerAngles.z + 500f*Time.deltaTime);
-            condition_2.eulerAngles = new Vector3(condition_2.eulerAngles.x, condition_2.eulerAngles.y, condition_2.eulerAngles.z + 500f*Time.deltaTime);
+            count += 300f * Time.deltaTime; 
+            condition_1.eulerAngles = new Vector3(condition_1.eulerAngles.x, condition_1.eulerAngles.y, condition_1.eulerAngles.z + 300f*Time.deltaTime);
+            condition_2.eulerAngles = new Vector3(condition_2.eulerAngles.x, condition_2.eulerAngles.y, condition_2.eulerAngles.z + 300f*Time.deltaTime);
 
             if (Mathf.Abs(count - 180)<1f)
             {

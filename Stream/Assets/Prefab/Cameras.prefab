@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 486282}
+  - component: {fileID: 2808407030183854251}
   m_Layer: 0
   m_Name: Cameras
   m_TagString: Untagged
@@ -33,6 +34,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &2808407030183854251
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199430}
+  m_Enabled: 1
 --- !u!1 &6200582023666877038
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,9 +85,10 @@ Camera:
   m_ClearFlags: 3
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -150,9 +160,10 @@ Camera:
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -197,6 +208,7 @@ MonoBehaviour:
   blurShader: {fileID: 4800000, guid: 57e6deea7c2924e22a5138e2b70bb4dc, type: 3}
   cutOutMaterial: {fileID: 2100000, guid: d5c0106e08a52ab4c89dabe7772d546e, type: 2}
   bgCamera: {fileID: 6200582024934476846}
+  bgTargetTexture: {fileID: 0}
 --- !u!1 &6200582024934476842
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,9 +252,10 @@ Camera:
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.9339623, g: 0.5729711, b: 0.2511125, a: 0}
   m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2

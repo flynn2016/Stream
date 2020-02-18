@@ -32,7 +32,29 @@ public class MouseOver : MonoBehaviour
 
     void OnMouseDown()
     {
-        if(this.name=="Start")
+        if (this.name != "Start"&&this.name!="NextLevel")
+            AudioManager.Instance.Play_clink();
+        else
+            AudioManager.Instance.Play_waterdrop();
+
+        if(this.name == "NextLevel")
+        {
+            if(SceneManager.GetActiveScene().name == "If")
+                SceneManager.LoadScene("For");
+            else if (SceneManager.GetActiveScene().name == "For")
+                SceneManager.LoadScene("Array");
+            else if (SceneManager.GetActiveScene().name == "Array")
+                SceneManager.LoadScene("level_4");
+            else if (SceneManager.GetActiveScene().name == "level_4")
+                SceneManager.LoadScene("level_5");
+            else if (SceneManager.GetActiveScene().name == "level_5")
+                SceneManager.LoadScene("level_6");
+            else if (SceneManager.GetActiveScene().name == "level_6")
+                SceneManager.LoadScene("Levels");
+        }
+
+
+        if (this.name=="Start")
             SceneManager.LoadScene("Levels");
         else if(this.name == "Level1")
             SceneManager.LoadScene("If");

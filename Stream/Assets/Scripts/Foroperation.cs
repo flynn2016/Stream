@@ -6,6 +6,8 @@ public class Foroperation : Operation
 {
     public override void ChangeCondition(Transform button)
     {
+        AudioManager.Instance.Play_buttonon();
+
         if (button.name == "for_up_collider")
         {
             if (for_number != 4 && lerp_finished && !operating)
@@ -33,10 +35,12 @@ public class Foroperation : Operation
                 temp_pos = this.transform.position;
                 temp_pos.x -= 0.8f;
             }
+            AudioManager.Instance.Play_buttonon();
         }
         else
         {
             operation_started = false;
+            AudioManager.Instance.Play_buttonoff();
         }
     }
     public Transform button;
@@ -95,7 +99,6 @@ public class Foroperation : Operation
         {
             Full();
             ChangeNumber();
-            Checkfilled();
         }
 
         else if (curr_state == forStates.releasing_water)
@@ -228,6 +231,7 @@ public class Foroperation : Operation
             {
                 liquidinput.TurnOffLiquid();
             }
+            AudioManager.Instance.Play_for_full();
             curr_state = forStates.full;
         }
 

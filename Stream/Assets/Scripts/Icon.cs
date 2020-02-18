@@ -55,6 +55,7 @@ public class Icon : MonoBehaviour
 
     private void OnMouseDown()
     {
+        AudioManager.Instance.Play_clink();
         Click();
     }
 
@@ -62,6 +63,7 @@ public class Icon : MonoBehaviour
     {
         if (this.name == "ChooseLevel")
         {
+            AudioManager.Instance.Stop_water();
             SceneManager.LoadScene("Levels");
         }
         else if(this.name == "Exit")
@@ -82,6 +84,7 @@ public class Icon : MonoBehaviour
         }
         else if(this.name == "Restart")
         {
+            AudioManager.Instance.Stop_water();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

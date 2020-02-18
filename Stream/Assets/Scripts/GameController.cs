@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class GameController : MonoBehaviour
     public GameObject particle_b;
     public LiquidSpawn [] liquidSpawns;
     public Animator goodjob;
+    public GameObject explain_text;
     public Container[] containers;
     public bool all_finished;
     public Color color_r;
@@ -35,6 +37,9 @@ public class GameController : MonoBehaviour
     private static bool level_1_passed;
     private static bool level_2_passed;
     private static bool level_3_passed;
+
+    private bool playonce;
+    private bool win_once;
 
     // Start is called before the first frame update
     void Start()
@@ -48,8 +53,9 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckWater();
         all_finished = true;
-
+        
         for (int i=0;i<containers.Length;i++)
         {
             all_finished &= containers[i].finished;
@@ -58,12 +64,19 @@ public class GameController : MonoBehaviour
         //hardcode for meeting
         if (all_finished)
         {
+            if (!win_once) {
+                win_once = true;
+                AudioManager.Instance.Play_winning();
+            }
+
             for (int i = 0; i < liquidSpawns.Length; i++)
             {
                 liquidSpawns[i].TurnOffLiquid();
             }
 
             goodjob.SetBool("passed",true);
+            goodjob.GetComponent<Button>().enabled = true;
+
             if (SceneManager.GetActiveScene().name == "If")
             {
                 level_1_passed = true;
@@ -84,9 +97,37 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void CheckWater()
+    {
+        bool temp = false;
+        foreach (LiquidSpawn spwaner in liquidSpawns)
+        {
+            temp |= spwaner.Liquidon;
+        }
+
+        if (temp&&!AudioManager.Instance.Water.isPlaying&&!playonce)
+        {
+            AudioManager.Instance.Play_water();
+            playonce = true;
+        }
+
+        if (!temp && AudioManager.Instance.Water.isPlaying)
+        {
+            AudioManager.Instance.Stop_water();
+            playonce = false;
+        }
+    }
+
     public void LoadNextScene()
     {
         if (all_finished)
         SceneManager.LoadScene("Levels");
+    }
+
+    public void press_gj()
+    {
+        AudioManager.Instance.Play_waterdrop();
+        goodjob.GetComponent<Image>().enabled = false;
+        explain_text.SetActive(true);
     }
 }

@@ -6,6 +6,8 @@ public class Arrayoperation : Operation
 {
     public override void ChangeCondition(Transform button)
     {
+        AudioManager.Instance.Play_buttonon();
+
         if (button.name == "array_up_collider")
         {
             if (for_number != 4 && lerp_finished && !operation_started)
@@ -27,12 +29,14 @@ public class Arrayoperation : Operation
             button_pressed.GetComponent<SpriteRenderer>().enabled = true;
             liquidOutput.TurnOnLiquid();
             started = true;
+            AudioManager.Instance.Play_buttonon();
         }
         else
         {
             button.GetComponent<SpriteRenderer>().enabled = true;
             button_pressed.GetComponent<SpriteRenderer>().enabled = false;
             liquidOutput.TurnOffLiquid();
+            AudioManager.Instance.Play_buttonoff();
         }
     }
 

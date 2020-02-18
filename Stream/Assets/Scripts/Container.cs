@@ -25,12 +25,16 @@ public class Container : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target_red && (water_count_red > water_threshold)&&water_count_green==0&&water_count_blue==0
-            || target_green && (water_count_green > water_threshold) && water_count_red == 0 && water_count_blue == 0
-            || target_blue && (water_count_blue > water_threshold)&& water_count_red == 0 && water_count_green == 0)
+        if (!finished)
         {
-            this.GetComponent<Animator>().SetBool("finished", true);
-            finished = true;
+            if (target_red && (water_count_red > water_threshold) && water_count_green == 0 && water_count_blue == 0
+                || target_green && (water_count_green > water_threshold) && water_count_red == 0 && water_count_blue == 0
+                || target_blue && (water_count_blue > water_threshold) && water_count_red == 0 && water_count_green == 0)
+            {
+                AudioManager.Instance.Play_beakerfull(); 
+                this.GetComponent<Animator>().SetBool("finished", true);
+                finished = true;
+            }
         }
     }
 
